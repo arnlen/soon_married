@@ -31,3 +31,6 @@ gem 'flipclockjs-rails', '~> 0.4.0b'
 
 # Style
 gem "autoprefixer-rails"
+
+# Dev
+gem 'annotate',     group: :development

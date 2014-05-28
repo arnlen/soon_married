@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
 
+  post 'register_guest' => 'static_pages#register_guest'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -19,4 +19,12 @@
         </div>
     </div>
 
+    <%= form_for @guest, url: register_guest_path, format: :json, remote: true do |f| %>
+        <%= f.text_field :name, placeholder: "Votre nom" %>
+        <%= f.email_field :email, placeholder: 'Email' %>
+        <%= f.select :will_be_present, [['Oui', true], ['Non', false]]  %>
+        <%= f.select :asks_for_mail_reminder, [['Oui', true], ['Non', false]]  %>
+
+    <% end %>
+
 </div>
