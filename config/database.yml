@@ -21,7 +21,3 @@ test:
   <<: *default
   database: married_soon_test
   username: arnaudlenglet
-
-production:
-  <<: *default
-  database: married_soon
