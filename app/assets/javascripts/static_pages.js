@@ -28,9 +28,6 @@ $(function() {
     // Hide hidden (hiddable ?) fields (lol) at page load
     $('#guest_will_be_present').hide();
 
-// END DATE
-// ---------------------------------------------
-
 
 // ---------------------------------------------
 // BUTTONS ANIMATIONS
@@ -43,9 +40,6 @@ $(function() {
             $(this).removeClass('beating');
         }
     );
-
-// END BUTTONS ANIMATIONS 
-// ---------------------------------------------
 
 
 // ---------------------------------------------
@@ -74,8 +68,14 @@ $(function() {
     });
 
 
-
-// END COMING YEST/NO BUTTONS
 // ---------------------------------------------
+// CONFIRMATION / CANCEL
+
+    // Cancel button: restore previous "Yes/No" buttons
+    $('.cancel, .validate_form').on('click', function() {
+        $('#coming_buttons').removeClass('down');
+        $('#form_container').addClass('up');
+        $('#final_buttons').addClass('up');
+    });
 
 });

@@ -30,6 +30,7 @@
             button {
                 position: absolute;
                 left: 30px;
+                font-size: 1.5em;
             }
         }
     }
@@ -39,7 +40,6 @@
 #form_container {
 
     input {
-        display: block;
         margin: 20px auto;
     }
 }
@@ -48,18 +48,27 @@
 #final_buttons {
 
     &.buttons_container {
-        height: 240px;
         z-index: 50;
+        position: relative;
 
         .button_wrapper {
             height: 100px;
             width: 100px;
             display: inline-block;
             position: relative;
+            margin: 0 50px;
+            right: 60px;
 
             button {
                 position: absolute;
                 left: 30px;
+            }
+
+            .validate_form {
+                font-size: 1.5em;
+            }
+
+            .cancel {
                 font-size: 1em;
             }
         }

@@ -11,23 +11,28 @@
         <h2>Seras-tu présent ?</h2>
 
         <div class='button_wrapper'>
-            <button id='will_be_present' class='yes'>Oui</button>
-        </div>
-        
-        <div class='button_wrapper'>
             <button id='wont_be_present' class='no'>Non</button>
+        </div>
+        <div class='button_wrapper'>
+            <button id='will_be_present' class='yes'>Oui</button>
         </div>
     </div>
 
     <div id='form_container' class='animated up'>
         <%= form_for @guest, url: register_guest_path, format: :json, remote: true do |f| %>
             <%= f.text_field :name, placeholder: "C'est quoi ton p'tit nom ?" %>
-            <%= f.label :email, "Envie d'un petit mail de rappel avec les infos importantes à quelques jours de l'événement ? Si oui, laisse ton adresse !" %>
             <%= f.email_field :email, placeholder: "ma_super_adresse@mariage_de_ouf.fr." %>
             <%= f.select :will_be_present, [['Oui', true], ['Non', false]]  %>
         <% end %>
 
-        
+        <div id='final_buttons' class='buttons_container animated up'>
+            <div class='button_wrapper'>
+                <button class='cancel'>J'ai un doute</button>
+            </div>
+            <div class='button_wrapper'>
+                <button class='validate_form yes'>Je valide</button>
+            </div>
+        </div>
 
     </div>
 
