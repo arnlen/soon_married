@@ -1,30 +1,34 @@
-<%= audio_tag 'Nat_King_Cole_LOVE.wav', autoplay: true %>
+<%= audio_tag 'Nat_King_Cole_LOVE.wav', autoplay: false %>
 
-<div class='home_container'>
+<div id='home_container'>
 
     <h1>Wendy et Arnaud se diront "Oui" dans...</h1>
 
     <!-- Countdown -->
-    <div class='countdown_container'></div>
+    <div id='countdown_container'></div>
 
-    <div class='buttons_container'>
+    <div id='coming_buttons' class='buttons_container animated up'>
         <h2>Seras-tu présent ?</h2>
 
         <div class='button_wrapper'>
-            <button class='yes'>Oui</button>
+            <button id='will_be_present' class='yes'>Oui</button>
         </div>
         
         <div class='button_wrapper'>
-            <button class='no'>Non</button>
+            <button id='wont_be_present' class='no'>Non</button>
         </div>
     </div>
 
-    <%= form_for @guest, url: register_guest_path, format: :json, remote: true do |f| %>
-        <%= f.text_field :name, placeholder: "Votre nom" %>
-        <%= f.email_field :email, placeholder: 'Email' %>
-        <%= f.select :will_be_present, [['Oui', true], ['Non', false]]  %>
-        <%= f.select :asks_for_mail_reminder, [['Oui', true], ['Non', false]]  %>
+    <div id='form_container' class='animated up'>
+        <%= form_for @guest, url: register_guest_path, format: :json, remote: true do |f| %>
+            <%= f.text_field :name, placeholder: "C'est quoi ton p'tit nom ?" %>
+            <%= f.label :email, "Envie d'un petit mail de rappel avec les infos importantes à quelques jours de l'événement ? Si oui, laisse ton adresse !" %>
+            <%= f.email_field :email, placeholder: "ma_super_adresse@mariage_de_ouf.fr." %>
+            <%= f.select :will_be_present, [['Oui', true], ['Non', false]]  %>
+        <% end %>
 
-    <% end %>
+        
+
+    </div>
 
 </div>

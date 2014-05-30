@@ -13,7 +13,7 @@
 
 class Guest < ActiveRecord::Base
 
-    validates :name, :email, :will_be_present, :asks_for_mail_reminder, presence: true
+    validates :name, :email, :will_be_present, presence: true
     validates :email, uniqueness: true
 
 end

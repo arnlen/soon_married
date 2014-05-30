@@ -1,0 +1,95 @@
+#home_container {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    height: 85%;
+    position: relative;
+}
+
+
+#countdown_container {
+    margin: 70px auto;
+    width: 620px;
+    max-width: 100%;
+}
+
+
+#coming_buttons {
+
+    &.buttons_container {
+        height: 240px;
+        z-index: 50;
+
+        .button_wrapper {
+            height: 200px;
+            width: 200px;
+            display: inline-block;
+            position: relative;
+
+            button {
+                position: absolute;
+                left: 30px;
+            }
+        }
+    }
+}
+
+
+#form_container {
+
+    input {
+        display: block;
+        margin: 20px auto;
+    }
+}
+
+
+#final_buttons {
+
+    &.buttons_container {
+        height: 240px;
+        z-index: 50;
+
+        .button_wrapper {
+            height: 100px;
+            width: 100px;
+            display: inline-block;
+            position: relative;
+
+            button {
+                position: absolute;
+                left: 30px;
+                font-size: 1em;
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------------
+// Classes to animate elements positions
+
+
+.animated {
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    opacity: 1;
+
+    transition: all 1.0s ease;
+
+    &.up {
+        bottom: 30%;
+        opacity: 0;
+    }
+
+    &.down {
+        bottom: -50%;
+        opacity: 0;
+    }
+}
+
+
+// Classes to animate elements positions
+// ---------------------------------------------

@@ -1,0 +1,60 @@
+// Full screen options
+html, body {
+    height: 100%;
+    max-height: 900px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Parisienne', cursive, 'sans-serif';
+    font-size: 20px;
+    color: $red;
+    background-image: url(<%= asset_path('map_background.jpg') %>);
+    background-repeat: no-repeat;
+    background-position: center 0%;
+    background-size: cover;
+}
+
+form {
+
+    input {
+        width: 40%;
+        padding: 2em;
+        max-width: 300px;
+        border-radius: 5px;
+        border: 1px solid $gold;
+
+        &:hover, &:active, &:focus {
+            box-shadow: 0 0 20px -5px $gold;
+        }
+    }
+
+}
+
+button {
+    border: solid 1px;
+    height: 100px;
+    width: 100px;
+    border-radius: 60px;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: white;
+    margin: 10px 25px;
+
+    &.beating {
+        animation-duration: 1s;
+        animation-name: heart_beats;
+        animation-iteration-count: infinite;
+    }
+    
+    &.yes {
+        background-color: $red;
+    }
+
+    &.no {
+        background-color: $red-dark;
+    }
+}
