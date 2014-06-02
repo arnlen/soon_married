@@ -7,12 +7,14 @@
 default: &default
   adapter: postgresql
   encoding: UTF8
+  port: 15432
   pool: 5
 
 development:
   <<: *default
   database: married_soon_dev
   username: arnaudlenglet
+  password: ''
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,3 +23,4 @@ test:
   <<: *default
   database: married_soon_test
   username: arnaudlenglet
+  password: ''

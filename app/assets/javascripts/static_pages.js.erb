@@ -52,19 +52,18 @@ $(function() {
     $('.yes, .no').on('click', function() {
         $('#coming_buttons').addClass('down');
         $('#form_container').removeClass('up');
-        $('#final_buttons').removeClass('up');
     });
 
     // YES I'll come!
     $('#will_be_present').on('click', function() {
         $('#guest_will_be_present').val('true');
+        $('label').text("Ton adresse nous permettra de t'envoyer un mail de rappel à quelques jours de l'événement !");
     });
 
     // NO I won't come...
     $('#wont_be_present').on('click', function() {
         $('#guest_will_be_present').val('false');
-        $('#guest_email').hide();
-        $('label').hide();
+        $('label').text("Laisse-nous tes coordonnées juste au cas où !");
     });
 
 
@@ -72,10 +71,18 @@ $(function() {
 // CONFIRMATION / CANCEL
 
     // Cancel button: restore previous "Yes/No" buttons
-    $('.cancel, .validate_form').on('click', function() {
+    $('.cancel').on('click', function() {
         $('#coming_buttons').removeClass('down');
         $('#form_container').addClass('up');
-        $('#final_buttons').addClass('up');
+    });
+
+    $("#new_guest").on("ajax:success", function(e, data, status, xhr) {
+        $('#success_confirmation').removeClass('up');
+        $('#form_container').addClass('down');
+    });
+
+    $("#new_guest").on("ajax:error", function(e, data, status, xhr) {
+        console.log(e, data, status, xhr);
     });
 
 });

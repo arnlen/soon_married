@@ -3,8 +3,8 @@ class CreateGuests < ActiveRecord::Migration
     create_table :guests do |t|
       t.string :name
       t.string :email
+      t.string :comment
       t.boolean :will_be_present
-      t.boolean :asks_for_mail_reminder
 
       t.timestamps
     end

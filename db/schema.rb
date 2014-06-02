@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20140528215227) do
   create_table "guests", force: true do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "comment"
     t.boolean  "will_be_present"
-    t.boolean  "asks_for_mail_reminder"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
