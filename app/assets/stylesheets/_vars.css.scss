@@ -4,8 +4,14 @@
 
 @font-face {
     font-family: 'Walker on the Moon';
-    src: url('/assets/Walker_on_the_Moon.otf') format('otf'),
-        url('/assets/Walker_on_the_Moon.ttf') format('truetype');
+    src: assets-url('Walker_on_the_Moon.otf') format('otf'),
+        assets-url('Walker_on_the_Moon.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Walker on the Moon Light';
+    src: assets-url('Walker_on_the_Moon_Light.otf') format('otf'),
+        assets-url('Walker_on_the_Moon_Light.ttf') format('truetype');
 }
 
 
