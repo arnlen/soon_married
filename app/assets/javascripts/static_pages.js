@@ -84,5 +84,4 @@ $(function() {
     $("#new_guest").on("ajax:error", function(e, data, status, xhr) {
         console.log(e, data, status, xhr);
     });
-
 });

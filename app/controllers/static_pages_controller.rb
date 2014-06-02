@@ -11,7 +11,7 @@ class StaticPagesController < ApplicationController
 
         respond_to do |format|
             format.json {
-                render json: {result: result, guest_params: guest_params},
+                render json: {result: result, errors: @guest.errors},
                 status: result != true ? 400 : 200
             }
         end
