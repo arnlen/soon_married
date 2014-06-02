@@ -36,12 +36,12 @@ $gray-light:    lighten($gray, 10);
 // -------------------------------------------
 //                  FONT-FACES
 
-// @font-face {
-//     font-family: 'Walker on the Moon';
-//     src: url('Walker on the Moon.otf');
-//     src: url('/assets/Walker on the Moon.otf') format('otf'),
-//          url('/assets/Walker on the Moon.ttf') format('truetype');
-// }
+@font-face {
+    font-family: 'Walker on the Moon';
+    src: url('Walker on the Moon.otf');
+    src: url('/assets/Walker on the Moon.otf') format('otf'),
+         url('/assets/Walker on the Moon.ttf') format('truetype');
+}
 
 // -------------------------------------------
 //                  RESPONSIVE
