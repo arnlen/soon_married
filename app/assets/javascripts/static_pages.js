@@ -11,7 +11,8 @@ $(function() {
 
     // Load the music
     // Old HTML: <%= audio_tag 'Nat_King_Cole_LOVE.wav', autoplay: true %>
-    var musicLOVE = new Audio();
+    var musicLOVE = new Audio(),
+        musicLoaded = false;
 
     // Begin music loading
     console.log('Musics loading has started...');
@@ -19,9 +20,18 @@ $(function() {
 
     musicLOVE.addEventListener('canplay', function() {
         console.log('... Musics loaded!');
+        musicLoaded = true;
         musicLOVE.play();
         $('#loading_overlay').hide();
     });
+
+    // Fallback if music can't be loaded
+    setTimeout(function() {
+        if (musicLoaded != true) {
+            console.log('... Musics not loaded, fallback.');
+            $('#loading_overlay').hide();
+        }
+    }, 5000);
 
     // Initiates dates
     var dDay = new Date(2014, 7, 15, 14, 0, 0),
