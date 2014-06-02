@@ -9,7 +9,21 @@ $(function() {
 // ---------------------------------------------
 // PAGE LOADING AND INIT
 
-    //Initiates dates
+    // Load the music
+    // Old HTML: <%= audio_tag 'Nat_King_Cole_LOVE.wav', autoplay: true %>
+    var musicLOVE = new Audio();
+
+    // Begin music loading
+    console.log('Musics loading has started...');
+    musicLOVE.src = 'audios/Nat_King_Cole_LOVE.wav';
+
+    musicLOVE.addEventListener('canplay', function() {
+        console.log('... Musics loaded!');
+        musicLOVE.play();
+        $('#loading_overlay').hide();
+    });
+
+    // Initiates dates
     var dDay = new Date(2014, 7, 15, 14, 0, 0),
         now = new Date(); 
 
@@ -63,7 +77,7 @@ $(function() {
     // NO I won't come...
     $('#wont_be_present').on('click', function() {
         $('#guest_will_be_present').val('false');
-        $('label').text("Laisse-nous tes coordonnées juste au cas où !");
+        $('label').text("Laisse-nous tes coordonnées, juste au cas où !");
     });
 
 
