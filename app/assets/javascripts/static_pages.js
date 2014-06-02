@@ -15,7 +15,7 @@ $(function() {
 
     // Begin music loading
     console.log('Musics loading has started...');
-    musicLOVE.src = 'audios/Nat_King_Cole_LOVE.wav';
+    musicLOVE.src = 'audios/Nat_King_Cole_LOVE.ogg';
 
     musicLOVE.addEventListener('canplay', function() {
         console.log('... Musics loaded!');
