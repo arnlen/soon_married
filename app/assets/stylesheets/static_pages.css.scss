@@ -14,6 +14,15 @@
     max-width: 100%;
 }
 
+#user_inputs_container {
+    position: relative;
+    height: 300px;
+
+    @media screen and (max-width: 700px) {
+        height: 550px;
+    }
+}
+
 
 #coming_buttons {
 
@@ -82,20 +91,20 @@
 
 .animated {
     position: absolute;
-    bottom: 15%;
     width: 100%;
     opacity: 1;
+    top: 0;
 
     transition: all 1.0s ease;
 
     &.up {
-        bottom: 40%;
         opacity: 0;
+        top: -100px;
     }
 
     &.down {
-        bottom: -50%;
         opacity: 0;
+        top: 200px;
     }
 }
 

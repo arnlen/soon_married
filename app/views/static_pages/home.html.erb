@@ -7,38 +7,45 @@
     <!-- Countdown -->
     <div id='countdown_container'></div>
 
-    <div id='coming_buttons' class='buttons_container animated up'>
-        <h2>Seras-tu présent ?</h2>
+    <div id='user_inputs_container'>
 
-        <div class='button_wrapper'>
-            <button id='wont_be_present' class='no'>Non</button>
-        </div>
-        <div class='button_wrapper'>
-            <button id='will_be_present' class='yes'>Oui</button>
-        </div>
-    </div>
+        <!-- STEP 1: Coming YES or NO? -->
+        <div id='coming_buttons' class='buttons_container animated up'>
+            <h2>Seras-tu présent ?</h2>
 
-    <div id='form_container' class='animated up'>
-        <%= form_for @guest, url: register_guest_path, format: :json, remote: true do |f| %>
-            <%= f.label :name %><br />
-            <%= f.text_field :name, placeholder: "Ton nom/prénom pour que l'on sache qui tu es" %>
-            <%= f.email_field :email, placeholder: "ma_super_adresse@mariage_de_ouf.fr." %>
-            <%= f.text_field :comment, placeholder: "Un petit commentaire peut-être ? :)" %>
-            <%= f.select :will_be_present, [['Oui', true], ['Non', false]]  %>
-
-            <div id='final_buttons' class='buttons_container'>
-                <div class='button_wrapper'>
-                    <button class='cancel'>J'ai un doute</button>
-                </div>
-                <div class='button_wrapper'>
-                    <button type='submit' class='validate_form yes'>Je valide</button>
-                </div>
+            <div class='button_wrapper'>
+                <button id='wont_be_present' class='no'>Non</button>
             </div>
-        <% end %>
-    </div>
+            <div class='button_wrapper'>
+                <button id='will_be_present' class='yes'>Oui</button>
+            </div>
+        </div>
 
-    <div id='success_confirmation' class='animated up'>
-        <p>Nous avons bien reçu vos réponses, et nous vous en remercions !<br>A très bientôt !<br><br>Wendy et Arnaud</p>
+        <!-- STEP 2: Fill name, email and comment -->
+        <div id='form_container' class='animated up'>
+            <%= form_for @guest, url: register_guest_path, format: :json, remote: true do |f| %>
+                <%= f.label :name %><br />
+                <%= f.text_field :name, placeholder: "Ton nom/prénom pour que l'on sache qui tu es" %>
+                <%= f.email_field :email, placeholder: "ma_super_adresse@mariage_de_ouf.fr." %>
+                <%= f.text_field :comment, placeholder: "Un petit commentaire peut-être ? :)" %>
+                <%= f.select :will_be_present, [['Oui', true], ['Non', false]]  %>
+
+                <div id='final_buttons' class='buttons_container'>
+                    <div class='button_wrapper'>
+                        <button class='cancel'>J'ai un doute</button>
+                    </div>
+                    <div class='button_wrapper'>
+                        <button type='submit' class='validate_form yes'>Je valide</button>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+        <!-- STEP 3: confirmation screen -->
+        <div id='success_confirmation' class='animated up'>
+            <p>Nous avons bien reçu vos réponses, et nous vous en remercions !<br>A très bientôt !<br><br>Wendy et Arnaud</p>
+        </div>
+
     </div>
 
 </div>
