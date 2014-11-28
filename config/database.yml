@@ -6,15 +6,15 @@
 #
 default: &default
   adapter: postgresql
-  encoding: UTF8
-  port: 15432
   pool: 5
+  timeout: 5000
+  username: arnaudlenglet # Default: your computer account username
+  password:  # Default: empty
+  host: /tmp
 
 development:
   <<: *default
   database: married_soon_dev
-  username: arnaudlenglet
-  password: ''
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,5 +22,3 @@ development:
 test:
   <<: *default
   database: married_soon_test
-  username: arnaudlenglet
-  password: ''
