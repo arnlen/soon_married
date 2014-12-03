@@ -32,14 +32,14 @@ $(function() {
             console.log('... Musics not loaded, fallback.');
             $('#loading_overlay').hide();
         }
-    }, 5000);
+    }, 500);
 
     // Initiates dates
     var dDay = new Date(2014, 7, 15, 14, 0, 0),
         now = new Date();
 
     // Difference between target and now
-    var timeLeft = dDay.getTime() / 1000 - now.getTime() / 1000;
+    var timeLeft = now.getTime() / 1000 - dDay.getTime() / 1000;
 
     // Flipclock for homepage countdown
     var countdown = $('#countdown_container').FlipClock({
@@ -48,7 +48,7 @@ $(function() {
     });
 
     countdown.setTime(timeLeft);
-    countdown.setCountdown(true);
+    countdown.setCountdown(false);
 
     // Hide hidden (hiddable ?) fields (lol) at page load
     $('#guest_will_be_present').hide();
