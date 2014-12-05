@@ -1,3 +1,5 @@
+@import "vars";
+
 #loading_overlay {
     font-size: 4em;
     color: white;
@@ -33,12 +35,21 @@
     }
 }
 
+.error {
+    color: #666;
+    font-size: 1.5em;
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+    width: 540px;
+}
+
 form {
 	margin: 1em 0;
 }
 
 input {
-	margin: 20px auto;
+	padding: 5px 30px;
 }
 
 label {
@@ -46,7 +57,11 @@ label {
 }
 
 button {
-	font-size: 1.5em;
+	margin: 0 20px;
+    font-size: 1em;
+    padding: 5px 30px;
+    background-color: white;
+    border: 1px solid
 }
 
 

@@ -6,11 +6,15 @@
   <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag params[:controller], 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :modernizr %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
 
-<%= yield %>
+<div class="container-fluid">
+  <%= yield %>
+</div>
 
 <!-- Google Analytics -->
 <script>

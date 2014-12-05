@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   		cookies[:access_granted_to_150814_pictures] = true
   		redirect_to pictures_path
   	else
+      flash[:notice] = "Et tu espères accéder aux photos avec cette phrase ?<br>C'est mort."
   		render "new"
   	end
   end

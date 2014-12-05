@@ -24,6 +24,7 @@ $(function() {
         musicLoaded = true;
         musicLOVE.play();
         $('#loading_overlay').hide();
+        $('#home_container').show();
     });
 
     // Fallback if music can't be loaded
@@ -31,6 +32,7 @@ $(function() {
         if (musicLoaded != true) {
             console.log('... Musics not loaded, fallback.');
             $('#loading_overlay').hide();
+            $('#home_container').show();
         }
     }, 500);
 

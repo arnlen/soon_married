@@ -1,6 +1,6 @@
 <div id='loading_overlay'>Monte le son !<br>Chargement en cours...</div>
 
-<div id='home_container'>
+<div id='home_container' style="display: none;">
 
     <h1>Wendy et Arnaud se sont dit "Oui" il y a...</h1>
 
@@ -9,10 +9,13 @@
 
     <div id='user_inputs_container'>
     	<p>Pour accéder aux photos du mariage, entrez la phrase d'accès figurant sur votre carte de remerciement</p>
-    	<form method="post" action="<%= new_session_path %>">
-    		<input type="text" name="passphrase" placeholder="Phrase d'accès"><br>
-    		<button type="submit">Accéder</button>
-    	</form>
+
+    	<%= form_tag sessions_path do %>
+    		<p class="error"><%= raw flash[:notice] %></p>
+    		<%= text_field_tag "passphrase", "", { placeholder: "Entrer la phrase d'accès" } %>
+    		<%= button_tag "Accéder" %>
+    	<% end %>
+
     </div>
 
 </div>
