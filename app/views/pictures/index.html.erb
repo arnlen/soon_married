@@ -1,10 +1,54 @@
-<h1>Photos</h1>
-<p>Cliquez sur l'une des catégories pour retrouver les photos associées</p>
+<div class="container">
 
-<div>
-	<button class="all">Toutes</button>
-	<button class="cityhall">Mairie Jouy-Le-Moutier</button>
-	<button class="church">Eglise Vauréal</button>
-	<button class="shooting">Shooting mariés</button>
-	<button class="night">Soirée Ferme du Grand Chemin</button>
+	<div class="row-fluid">
+		<h1>Les photos</h1>
+		<h2>Cliquez sur l'une des catégories pour retrouver les photos associées</h2>
+	</div>
+
+	<div class="filter-options row-fluid">
+		<button data-group="preparation">Préparation</button>
+		<button data-group="cityhall">Mairie</button>
+		<button data-group="church">Eglise</button>
+		<button data-group="shooting">Shooting</button>
+		<button data-group="night">Soirée</button>
+	</div>
+
+</div>
+
+<div class="container-fluid grid-container">
+
+	<div id="grid" class="row-fluid">
+
+		<% @preparation_images.each do |image| %>
+		  <figure class="span3 picture-item" data-groups='["preparation"]'>
+		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
+		  </figure>
+		<% end %>
+
+		<% @cityhall_images.each do |image| %>
+		  <figure class="span3 picture-item" data-groups='["cityhall"]'>
+		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
+		  </figure>
+		<% end %>
+
+		<% @church_images.each do |image| %>
+		  <figure class="span3 picture-item" data-groups='["church"]'>
+		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
+		  </figure>
+		<% end %>
+
+		<% @shooting_images.each do |image| %>
+		  <figure class="span3 picture-item" data-groups='["shooting"]'>
+		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
+		  </figure>
+		<% end %>
+
+		<% @night_images.each do |image| %>
+		  <figure class="span3 picture-item" data-groups='["night"]'>
+		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
+		  </figure>
+		<% end %>
+
+	</div>
+
 </div>

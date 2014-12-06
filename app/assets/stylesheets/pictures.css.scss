@@ -1,15 +1,38 @@
 h1 {
+	font-size: 3em;
+	text-align: center;
+}
 
+h2 {
+	font-size: 1.2em;
+	text-align: center;
 }
 
 p {
 
 }
 
-.filter_menu {
+.filter-options {
+	text-align: center;
 
 	button {
+		background-color: rgba(255, 255, 255, 0.6);
+		margin: 10px 1px;
+		border: none;
+		box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+		width: 18%;
 
+		&:hover {
+			box-shadow: 0 0 10px 0;
+			background-color: white;
+		}
 	}
+}
 
+.picture-item {
+	margin: 10px;
+}
+
+.grid-container {
+	// overflow: scroll;
 }
