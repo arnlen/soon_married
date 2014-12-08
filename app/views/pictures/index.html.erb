@@ -19,34 +19,31 @@
 
 	<div id="grid" class="row-fluid">
 
-		<% @preparation_images.each do |image| %>
-		  <figure class="span3 picture-item" data-groups='["preparation"]'>
-		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
-		  </figure>
-		<% end %>
+		<% @pictures.each_with_index do |picture, index| %>
+			<% if index <= 13 %>
+				<% data_group = "preparation" %>
+			<% elsif index <= 24 %>
+				<% data_group = "cityhall" %>
+			<% elsif index <= 68 %>
+				<% data_group = "church" %>
+			<% elsif index <= 86 %>
+				<% data_group = "shooting" %>
+			<% else %>
+				<% data_group = "night" %>
+			<% end %>
 
-		<% @cityhall_images.each do |image| %>
-		  <figure class="span3 picture-item" data-groups='["cityhall"]'>
-		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
-		  </figure>
-		<% end %>
+			<figure class="span3 picture-item" data-groups='["<%= data_group %>"]'>
 
-		<% @church_images.each do |image| %>
-		  <figure class="span3 picture-item" data-groups='["church"]'>
-		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
-		  </figure>
-		<% end %>
+				<%= link_to(image_tag(picture.thumb.url), "#picture-#{picture.id}", class: "fancybox") %>
 
-		<% @shooting_images.each do |image| %>
-		  <figure class="span3 picture-item" data-groups='["shooting"]'>
-		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
-		  </figure>
-		<% end %>
+				<div style="display:none;">
+				  <div id="<%= "picture-#{picture.id}" %>" class="picture-fancybox">
+				  	<div class="medium_picture_url"><%= picture.medium.url %></div><br>
+				  	<%= link_to "Télécharger en haute définition", picture.hd.url %>
+				  </div>
+				</div>
 
-		<% @night_images.each do |image| %>
-		  <figure class="span3 picture-item" data-groups='["night"]'>
-		  	<%= image_tag "thumb-wendy-et-arnaud-#{image}.jpg", size: "20%x20%" %>
-		  </figure>
+			</figure>
 		<% end %>
 
 	</div>

@@ -13,8 +13,13 @@ gem 'turbolinks'
 
 gem 'spring',        group: :development
 
+gem 'paperclip'
+gem 'aws-sdk'
+
 # Countdown
 gem 'flipclockjs-rails', '~> 0.4.0b'
+
+gem 'fancybox2-rails'
 
 # Style
 gem "autoprefixer-rails"

@@ -1,3 +1,4 @@
+//= require fancybox
 //= require modernizr
 //= require shufflejs
 
@@ -53,3 +54,16 @@ setupFilters = function($grid, $filterOptions) {
 
   $btns = null;
 };
+
+
+// Fancybox
+
+$(document).ready(function() {
+  $("a.fancybox").fancybox();
+  $("a.fancybox").click(function() {
+    var mediumPictureUrlNode = $(this).parent().find(".medium_picture_url"),
+        mediumPictureUrlText = mediumPictureUrlNode.text();
+
+    mediumPictureUrlNode.html("<img src='" + mediumPictureUrlText + "'>");
+  });
+});
