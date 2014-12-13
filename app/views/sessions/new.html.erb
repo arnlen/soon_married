@@ -1,7 +1,9 @@
 <div id='home_container'>
 
-    <h1 class="hidden-xs">Wendy et Arnaud se sont dit "Oui" il y a...</h1>
-    <h1 class="visible-xs">Wendy et Arnaud se sont dit "Oui" le 15 août 2014 !</h1>
+    <div class="row">
+        <h1 class="hidden-xs">Wendy et Arnaud se sont dit "Oui" il y a...</h1>
+        <h1 class="visible-xs">Wendy et Arnaud se sont dit "Oui" le 15 août 2014 !</h1>
+    </div>
 
     <!-- Countdown -->
     <div class="hidden-xs" id='countdown_container'></div>
@@ -9,11 +11,15 @@
     <div id='user_inputs_container'>
     	<p>Pour accéder aux photos du mariage, entrez la phrase d'accès</p>
 
-    	<%= form_tag sessions_path do %>
-    		<p class="error"><%= raw flash[:notice] %></p>
-    		<%= text_field_tag "passphrase", "", { placeholder: "Entrer la phrase d'accès" } %>
-    		<%= button_tag "Accéder" %>
-    	<% end %>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= form_tag sessions_path do %>
+            <p class="error"><%= raw flash[:notice] %></p>
+            <%= text_field_tag "passphrase", "", { placeholder: "Entrer la phrase d'accès" } %>
+            <%= button_tag "Accéder" %>
+          <% end %>
+        </div>
+      </div>
 
     </div>
 
