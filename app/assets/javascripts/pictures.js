@@ -66,4 +66,31 @@ $(document).ready(function() {
 
     mediumPictureUrlNode.html("<img src='" + mediumPictureUrlText + "'>");
   });
+
+  // Previous/Next picture
+  $('button.previous').on('click', function() {
+    var picture_id = $(this).parent().attr('id'),
+        previousPictureId = $(this).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.previous-id').text(),
+        previous_picture_medium_url = $(this).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.previous-medium').text(),
+        previous_picture_hd_url = $(this).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.previous-hd').text(),
+        mediumPictureUrlNode = $(this).parent().find(".medium_picture_url"),
+        hdPictureUrlNode = $(this).parent().find(".hd_picture_url");
+
+    mediumPictureUrlNode.html("<img src='" + previous_picture_medium_url + "'>");
+    hdPictureUrlNode.attr('href', previous_picture_hd_url);
+    $(this).parent().attr('id', previousPictureId);
+  });
+
+  $('button.next').on('click', function() {
+    var picture_id = $(this).parent().attr('id'),
+        nextPictureId = $(this).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.next-id').text(),
+        nextPictureMediumURL = $(this).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.next-medium').text(),
+        nextPictureHdURL = $(this).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.next-hd').text(),
+        mediumPictureUrlNode = $(this).parent().find(".medium_picture_url"),
+        hdPictureUrlNode = $(this).parent().find(".hd_picture_url");
+
+    mediumPictureUrlNode.html("<img src='" + nextPictureMediumURL + "'>");
+    hdPictureUrlNode.attr('href', nextPictureHdURL);
+    $(this).parent().attr('id', nextPictureId);
+  });
 });

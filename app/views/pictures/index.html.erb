@@ -20,15 +20,29 @@
 
 	<div id="grid" class="row-fluid">
 
-		<% @pictures.each do |picture| %>
-			<figure class="span3 picture-item" data-groups='<%= picture.groups %>'>
+		<% @pictures.each_with_index do |picture, index| %>
+			<figure class="span3 picture-item picture-<%= picture.id %>" data-groups='<%= picture.groups %>'>
 
 				<%= link_to(image_tag(picture.thumb.url), "#picture-#{picture.id}", class: "fancybox") %>
+				<span class="hidden previous-id">picture-<%= index > 0 ? @pictures[index - 1].id : @pictures.last.id  %></span>
+				<span class="hidden next-id">picture-<%= index < @pictures.count - 1 ? @pictures[index + 1].id : @pictures.first.id %></span>
+
+				<span class="hidden previous-medium"><%= index > 0 ? @pictures[index - 1].medium.url : @pictures.last.medium.url %></span>
+				<span class="hidden next-medium"><%= index < @pictures.count - 1 ? @pictures[index + 1].medium.url : @pictures.first.medium.url %></span>
+
+				<span class="hidden previous-hd"><%= index > 0 ? @pictures[index - 1].hd.url : @pictures.last.hd.url %></span>
+				<span class="hidden next-hd"><%= index < @pictures.count - 1 ? @pictures[index + 1].hd.url : @pictures.first.hd.url %></span>
 
 				<div style="display:none;">
 				  <div id="<%= "picture-#{picture.id}" %>" class="picture-fancybox">
+				  	<button class="previous">
+				  		<span class="glyphicon glyphicon-chevron-left"></span>
+				  	</button>
+				  	<button class="next">
+				  		<span class="glyphicon glyphicon-chevron-right"></span>
+				  	</button>
 				  	<div class="medium_picture_url"><%= picture.medium.url %></div><br>
-				  	<%= link_to "Télécharger en haute définition", picture.hd.url %>
+				  	<%= link_to "Télécharger en haute définition", picture.hd.url, class: "hd_picture_url" %>
 				  </div>
 				</div>
 

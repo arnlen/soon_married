@@ -39,4 +39,26 @@ p {
 	text-align: center;
 	font-family: "Arial";
 	font-size: 0.6em;
+	position: relative;
+
+	button {
+		position: absolute;
+		top: 10px;
+		border-radius: 20px;
+		width: 40px;
+		height: 40px;
+		background-color: white;
+		font-family: 'Arial';
+		font-size: 0.6em;
+		line-height: 1.1em;
+		box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+		text-align: center;
+		border: none;
+		opacity: 0.4;
+
+		&:hover { opacity: 1 }
+
+		&.previous { left: 10px }
+		&.next { right: 10px }
+	}
 }
