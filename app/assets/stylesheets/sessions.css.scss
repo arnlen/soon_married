@@ -1,15 +1,5 @@
 @import "vars";
 
-#loading_overlay {
-    font-size: 4em;
-    color: white;
-    text-align: center;
-    padding-top: 10%;
-    height: 100%;
-    width: 100%;
-    opacity: 0.7;
-}
-
 #home_container {
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.7);
     padding: 20px;
@@ -30,8 +20,8 @@
     position: relative;
     height: 300px;
 
-    @media screen and (max-width: 700px) {
-        height: 550px;
+    p {
+        font-size: 1em;
     }
 }
 
@@ -50,10 +40,7 @@ form {
 
 input {
 	padding: 5px 30px;
-}
-
-label {
-	font-size: 1.3em;
+    font-size: 1em;
 }
 
 button {
