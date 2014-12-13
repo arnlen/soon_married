@@ -16,13 +16,15 @@ p {
 
 .filter-options {
 	text-align: center;
+	width: 80%;
+	max-width: 1000px;
+	margin: 10px auto 20px;
 
 	button {
 		background-color: rgba(255, 255, 255, 0.6);
-		margin: 10px 1px;
+		margin: 0;
 		border: none;
 		box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
-		width: 14%;
 
 		&:hover {
 			box-shadow: 0 0 10px 0;
