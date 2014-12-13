@@ -1,0 +1,18 @@
+<table>
+
+	<tr>
+		<th>#</th>
+		<th>Miniature</th>
+		<th>Nom</th>
+		<th>Groups</th>
+	</tr>
+	<% @pictures.each do |picture| %>
+		<tr>
+			<td><%= picture.id %></td>
+			<td><%= image_tag picture.thumb.url %></td>
+			<td><%= picture.hd_file_name %></td>
+			<td><%= picture.groups %></td>
+		</tr>
+	<% end %>
+
+</table>

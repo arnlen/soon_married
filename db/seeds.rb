@@ -1,5 +1,5 @@
 # Compress to thumb and medium then upload to S3
-(1..155).each do |n|
+(156..173).each do |n|
 	file = "wendy-et-arnaud-#{n}.jpg"
 	p "Current file: #{file}"
 	system "convert app/assets/images/#{file} -quality 50% -resize 4% app/assets/images/thumb-#{file}"

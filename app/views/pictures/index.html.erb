@@ -9,6 +9,7 @@
 		<button data-group="preparation">Préparation</button>
 		<button data-group="cityhall">Mairie</button>
 		<button data-group="church">Eglise</button>
+		<button data-group="firefighters">Pompiers</button>
 		<button data-group="shooting">Shooting</button>
 		<button data-group="night">Soirée</button>
 	</div>
@@ -19,20 +20,8 @@
 
 	<div id="grid" class="row-fluid">
 
-		<% @pictures.each_with_index do |picture, index| %>
-			<% if index <= 13 %>
-				<% data_group = "preparation" %>
-			<% elsif index <= 24 %>
-				<% data_group = "cityhall" %>
-			<% elsif index <= 68 %>
-				<% data_group = "church" %>
-			<% elsif index <= 86 %>
-				<% data_group = "shooting" %>
-			<% else %>
-				<% data_group = "night" %>
-			<% end %>
-
-			<figure class="span3 picture-item" data-groups='["<%= data_group %>"]'>
+		<% @pictures.each do |picture| %>
+			<figure class="span3 picture-item" data-groups='<%= picture.groups %>'>
 
 				<%= link_to(image_tag(picture.thumb.url), "#picture-#{picture.id}", class: "fancybox") %>
 

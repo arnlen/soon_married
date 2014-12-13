@@ -2,10 +2,10 @@ class PicturesController < ApplicationController
 	before_action :is_authenticated!
 
   def index
-    @pictures = Picture.all
-  end
-
-  def show
+    @pictures = Picture.order(:groups, :hd_file_name)
+    if params[:admin]
+      render 'pictures/index_admin'
+    end
   end
 
   private

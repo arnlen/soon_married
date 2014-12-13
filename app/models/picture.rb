@@ -1,4 +1,6 @@
 class Picture < ActiveRecord::Base
+	serialize :groups
+
  # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :thumb
   has_attached_file :medium
