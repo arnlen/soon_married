@@ -1,6 +1,8 @@
-//= require fancybox
 //= require modernizr
 //= require shufflejs
+
+// --------------------------------------------------------------------
+//                            ShuffleJS
 
 // Overrideable options
 Shuffle.options = {
@@ -56,36 +58,34 @@ setupFilters = function($grid, $filterOptions) {
 };
 
 
-// Image Box
+// --------------------------------------------------------------------
+//          Image Box: custom Image display by @arnlen
+
 $(document).ready(function() {
 
-  $('img.thumb_image').click(function() {
+  $('img.thumb_image').on('click', function() {
     var mediumPicturePlaceholder = $('.medium-picture-placeholder'),
         mediumPictureUrlText = $(this).parent().find('.medium-picture-url').text(),
         currentPictureId = $(this).parent().find('.current-id').text();
 
-    $('.overlay').addClass('active');
-    $('.image_box_container').addClass('active');
-
-    console.log(mediumPicturePlaceholder);
-    console.log(mediumPictureUrlText);
-    console.log(currentPictureId);
-
     mediumPicturePlaceholder.html("<img src='" + mediumPictureUrlText + "'>");
+    $('.selected-picture-id').text(currentPictureId);
+
+    openImageBox();
   });
 
-  $('.overlay').click(function() {
-    $('.overlay').removeClass('active');
-    $('.image_box_container').removeClass('active');
-  });
+  // Close the Image box on demand
+  $('.overlay').on('click', function() { closeImageBox(); });
+  $('.close').on('click', function() { closeImageBox(); });
 
   // Previous/Next picture
   $('button.previous').on('click', function() {
-    previousPicture(context);
+    var context = this;
+    changeImageBoxPicture('previous', context);
   });
-
   $('button.next').on('click', function() {
-    nextPicture(context);
+    var context = this;
+    changeImageBoxPicture('next', context);
   });
 
   $(document).keydown(function(e) {
@@ -103,29 +103,39 @@ $(document).ready(function() {
     e.preventDefault(); // prevent the default action (scroll / move caret)
   });
 
-  function previousPicture(context) {
-    var picture_id = $(context).parent().attr('id'),
-        previousPictureId = $(context).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.previous-id').text(),
-        previous_picture_medium_url = $(context).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.previous-medium').text(),
-        previous_picture_hd_url = $(context).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.previous-hd').text(),
-        mediumPictureUrlNode = $(context).parent().find(".medium_picture_url"),
-        hdPictureUrlNode = $(context).parent().find(".hd_picture_url");
 
-    mediumPictureUrlNode.html("<img src='" + previous_picture_medium_url + "'>");
-    hdPictureUrlNode.attr('href', previous_picture_hd_url);
-    $(context).parent().attr('id', previousPictureId);
+  // --------------------------------------------------------------------
+  //                            FUNCTIONS
+
+  function openImageBox() {
+    $('.overlay').addClass('active');
+    $('.image_box_container').addClass('active');
+    $('body').css('overflow', 'hidden');
   }
 
-  function nextPicture(context) {
-    var picture_id = $(context).parent().attr('id'),
-        nextPictureId = $(context).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.next-id').text(),
-        next_picture_medium_url = $(context).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.next-medium').text(),
-        next_picture_hd_url = $(context).parent().parent().parent().parent().parent().parent().parent().find('#grid').find('.' + picture_id).find('.next-hd').text(),
-        mediumPictureUrlNode = $(context).parent().find(".medium_picture_url"),
-        hdPictureUrlNode = $(context).parent().find(".hd_picture_url");
+  function closeImageBox() {
+    $('.overlay').removeClass('active');
+    $('.image_box_container').removeClass('active');
+    $('body').css('overflow', 'auto');
+  }
 
-    mediumPictureUrlNode.html("<img src='" + next_picture_medium_url + "'>");
-    hdPictureUrlNode.attr('href', next_picture_hd_url);
-    $(context).parent().attr('id', nextPictureId);
+  function changeImageBoxPicture(previousOrNext, context) {
+    var selectedPictureId = $(context).parent().find('.selected-picture-id').text(),
+        selectedPictureNode = $('#grid').find('.picture-' + selectedPictureId),
+        previousPictureId = selectedPictureNode.find('.previous-id').text(),
+        nextPictureId = selectedPictureNode.find('.next-id').text(),
+        previousPictureMediumUrl = selectedPictureNode.find('.previous-medium').text(),
+        nextPictureMediumUrl = selectedPictureNode.find('.next-medium').text(),
+        previousPictureHdUrl = selectedPictureNode.find('.previous-hd').text(),
+        nextPictureHdUrl = selectedPictureNode.find('.next-hd').text(),
+        mediumPicturePlaceholder = $('.medium-picture-placeholder');
+
+    if (previousOrNext == 'next') {
+      mediumPicturePlaceholder.html("<img src='" + nextPictureMediumUrl + "'>");
+      $('.selected-picture-id').text(nextPictureId);
+    } else {
+      mediumPicturePlaceholder.html("<img src='" + previousPictureMediumUrl + "'>");
+      $('.selected-picture-id').text(previousPictureId);
+    }
   }
 });

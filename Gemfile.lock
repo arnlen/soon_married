@@ -54,8 +54,6 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.0.2)
-    fancybox2-rails (0.2.8)
-      railties (>= 3.1.0, < 5.0)
     flipclockjs-rails (0.4.0b)
       jquery-rails (>= 1.0.17)
     hike (1.2.3)
@@ -139,7 +137,6 @@ DEPENDENCIES
   aws-sdk
   bootstrap-sass (~> 3.3.1)
   coffee-rails (~> 4.0.0)
-  fancybox2-rails
   flipclockjs-rails (~> 0.4.0b)
   jquery-rails
   modernizr-rails

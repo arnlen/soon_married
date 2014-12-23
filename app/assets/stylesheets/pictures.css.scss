@@ -36,9 +36,7 @@ p {
 .picture-item {
 	margin: 10px;
 
-	img {
-		cursor: pointer;
-	}
+	img { cursor: pointer; }
 }
 
 // -----------------------------------------------
@@ -61,29 +59,33 @@ p {
 	position: fixed;
 	top: 0;
 	left: 0;
+	bottom: 0;
 	z-index: 100;
 	width: 100%;
 	display: none;
+	overflow: scroll;
 
 	&.active { display: inherit; }
 
 	.image_box_inner {
-		width: 80%;
+		width: 90%;
 		margin: 5% auto;
 		background-color: white;
-		border: 3px solid black;
 		border-radius: 10px;
 		text-align: center;
 		position: relative;
+		padding: 5px;
 
 		img {
 			max-height: 100%;
 			max-width: 100%;
+			border-radius: 10px 10px 0 0;
+			margin-bottom: 10px;
 		}
 
 		button {
 			position: absolute;
-			top: 10px;
+			bottom: 10px;
 			border-radius: 20px;
 			width: 40px;
 			height: 40px;
@@ -100,6 +102,12 @@ p {
 
 			&.previous { left: 10px }
 			&.next { right: 10px }
+			&.close {
+				right: -13px;
+				top: -13px;
+				height: 30px;
+				width: 30px;
+			}
 		}
 	}
 }
