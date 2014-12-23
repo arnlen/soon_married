@@ -16,37 +16,54 @@
 
 </div>
 
-<div class="container-fluid grid-container">
+<div class="container-fluid">
 
-	<div id="grid" class="row-fluid">
+	<div class="grid-container">
 
-		<% @pictures.each_with_index do |picture, index| %>
-			<figure class="span3 picture-item picture-<%= picture.id %>" data-groups='<%= picture.groups %>'>
+		<div class="row-fluid">
+			<div id="grid">
 
-				<%= link_to(image_tag(picture.thumb.url), "#picture-#{picture.id}", class: "fancybox") %>
-				<span class="hidden previous-id">picture-<%= index > 0 ? @pictures[index - 1].id : @pictures.last.id  %></span>
-				<span class="hidden next-id">picture-<%= index < @pictures.count - 1 ? @pictures[index + 1].id : @pictures.first.id %></span>
+				<% @pictures.each_with_index do |picture, index| %>
+					<figure class="span3 picture-item picture-<%= picture.id %>" data-groups='<%= picture.groups %>'>
 
-				<span class="hidden previous-medium"><%= index > 0 ? @pictures[index - 1].medium.url : @pictures.last.medium.url %></span>
-				<span class="hidden next-medium"><%= index < @pictures.count - 1 ? @pictures[index + 1].medium.url : @pictures.first.medium.url %></span>
+						<%= image_tag picture.thumb.url, class: "thumb_image" %>
 
-				<span class="hidden previous-hd"><%= index > 0 ? @pictures[index - 1].hd.url : @pictures.last.hd.url %></span>
-				<span class="hidden next-hd"><%= index < @pictures.count - 1 ? @pictures[index + 1].hd.url : @pictures.first.hd.url %></span>
+						<span class="hidden medium-picture-url"><%= picture.medium.url %></span>
 
-				<div style="display:none;">
-				  <div id="<%= "picture-#{picture.id}" %>" class="picture-fancybox">
-				  	<button class="previous">
-				  		<span class="glyphicon glyphicon-chevron-left"></span>
-				  	</button>
-				  	<button class="next">
-				  		<span class="glyphicon glyphicon-chevron-right"></span>
-				  	</button>
-				  	<div class="medium_picture_url"><%= picture.medium.url %></div><br>
-				  	<%= link_to "Télécharger en haute définition", picture.hd.url, class: "hd_picture_url" %>
-				  </div>
-				</div>
+						<span class="hidden current-id"><%= picture.id %></span>
 
-			</figure>
-		<% end %>
+						<span class="hidden previous-id">picture-<%= index > 0 ? @pictures[index - 1].id : @pictures.last.id  %></span>
+						<span class="hidden next-id">picture-<%= index < @pictures.count - 1 ? @pictures[index + 1].id : @pictures.first.id %></span>
+
+						<span class="hidden previous-medium"><%= index > 0 ? @pictures[index - 1].medium.url : @pictures.last.medium.url %></span>
+						<span class="hidden next-medium"><%= index < @pictures.count - 1 ? @pictures[index + 1].medium.url : @pictures.first.medium.url %></span>
+
+						<span class="hidden previous-hd"><%= index > 0 ? @pictures[index - 1].hd.url : @pictures.last.hd.url %></span>
+						<span class="hidden next-hd"><%= index < @pictures.count - 1 ? @pictures[index + 1].hd.url : @pictures.first.hd.url %></span>
+
+					</figure>
+				<% end %>
+			</div>
+		</div>
+
+		<!-- Image box -->
+		<div class="image_box_container">
+		  <div class="image_box_inner">
+
+		  	<button class="previous">
+		  		<span class="glyphicon glyphicon-chevron-left"></span>
+		  	</button>
+		  	<button class="next">
+		  		<span class="glyphicon glyphicon-chevron-right"></span>
+		  	</button>
+
+		  	<div class="medium-picture-placeholder"></div><br>
+
+		  	<%= link_to "Télécharger en haute définition", "", class: "hd_picture_url" %>
+
+		  </div>
+		</div>
+		<div class="overlay"></div>
 
 	</div>
+</div>

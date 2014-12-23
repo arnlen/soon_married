@@ -56,16 +56,27 @@ setupFilters = function($grid, $filterOptions) {
 };
 
 
-// Fancybox
+// Image Box
 $(document).ready(function() {
-  var context = $('button.previous');
 
-  $("a.fancybox").fancybox();
-  $("a.fancybox").click(function() {
-    var mediumPictureUrlNode = $(this).parent().find(".medium_picture_url"),
-        mediumPictureUrlText = mediumPictureUrlNode.text();
+  $('img.thumb_image').click(function() {
+    var mediumPicturePlaceholder = $('.medium-picture-placeholder'),
+        mediumPictureUrlText = $(this).parent().find('.medium-picture-url').text(),
+        currentPictureId = $(this).parent().find('.current-id').text();
 
-    mediumPictureUrlNode.html("<img src='" + mediumPictureUrlText + "'>");
+    $('.overlay').addClass('active');
+    $('.image_box_container').addClass('active');
+
+    console.log(mediumPicturePlaceholder);
+    console.log(mediumPictureUrlText);
+    console.log(currentPictureId);
+
+    mediumPicturePlaceholder.html("<img src='" + mediumPictureUrlText + "'>");
+  });
+
+  $('.overlay').click(function() {
+    $('.overlay').removeClass('active');
+    $('.image_box_container').removeClass('active');
   });
 
   // Previous/Next picture
