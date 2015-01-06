@@ -28,9 +28,9 @@
 
 						<%= image_tag picture.thumb.url, class: "thumb_image" %>
 
-						<span class="hidden medium-picture-url"><%= picture.medium.url %></span>
-
 						<span class="hidden current-id"><%= picture.id %></span>
+						<span class="hidden medium-picture-url"><%= picture.medium.url %></span>
+						<span class="hidden hd-picture-url"><%= picture.hd.url %></span>
 
 						<span class="hidden previous-id"><%= index > 0 ? @pictures[index - 1].id : @pictures.last.id  %></span>
 						<span class="hidden next-id"><%= index < @pictures.count - 1 ? @pictures[index + 1].id : @pictures.first.id %></span>

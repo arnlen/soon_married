@@ -63,11 +63,14 @@ setupFilters = function($grid, $filterOptions) {
 
 $(document).ready(function() {
 
+  // Open the ImageBox on click on an image
   $('img.thumb_image').on('click', function() {
     var mediumPicturePlaceholder = $('.medium-picture-placeholder'),
         mediumPictureUrlText = $(this).parent().find('.medium-picture-url').text(),
+        hdPictureUrlText = $(this).parent().find('.hd-picture-url').text(),
         currentPictureId = $(this).parent().find('.current-id').text();
 
+    $('.hd_picture_url').attr('href', hdPictureUrlText);
     mediumPicturePlaceholder.html("<img src='" + mediumPictureUrlText + "'>");
     $('.selected-picture-id').text(currentPictureId);
 
@@ -146,9 +149,11 @@ $(document).ready(function() {
 
     if (previousOrNext == 'next') {
       mediumPicturePlaceholder.html("<img src='" + nextPictureMediumUrl + "'>");
+      $('.hd_picture_url').attr('href', nextPictureHdUrl);
       $('.selected-picture-id').text(nextPictureId);
     } else {
       mediumPicturePlaceholder.html("<img src='" + previousPictureMediumUrl + "'>");
+      $('.hd_picture_url').attr('href', previousPictureHdUrl);
       $('.selected-picture-id').text(previousPictureId);
     }
   }
