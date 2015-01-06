@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	if params[:passphrase] === "15 août 2014 en images"
+  	if params[:passphrase] === "15 août 2014 en images" || params[:passphrase] === "What a beautiful day"
   		cookies[:access_granted_to_150814_pictures] = true
   		redirect_to pictures_path
   	else

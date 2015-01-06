@@ -81,21 +81,35 @@ $(document).ready(function() {
   // Previous/Next picture
   $('button.previous').on('click', function() {
     var context = this;
+
+    // DEBUG
+    console.log(context);
+
     changeImageBoxPicture('previous', context);
   });
   $('button.next').on('click', function() {
     var context = this;
+
+    // DEBUG
+    console.log(context);
+
     changeImageBoxPicture('next', context);
   });
 
   $(document).keydown(function(e) {
     switch(e.which) {
         case 37: // left
-        previousPicture(context);
+        var context = $('button.previous')[0];
+        changeImageBoxPicture('previous', context);
         break;
 
         case 39: // right
-        nextPicture(context);
+        var context = $('button.next')[0];
+        changeImageBoxPicture('next', context);
+        break;
+
+        case 27: // escape
+        closeImageBox();
         break;
 
         default: return; // exit this handler for other keys
