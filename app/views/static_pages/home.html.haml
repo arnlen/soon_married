@@ -1,0 +1,42 @@
+#loading_overlay Monte le son ! %br/ Chargement en cours...
+
+#home_container
+
+  %h1 Wendy et Arnaud se diront "Oui" dans...
+
+  / Countdown
+  #countdown_container
+
+  #user_inputs_container
+
+    / STEP 1: Coming YES or NO?
+    #coming_buttons.buttons_container.animated.up
+      %h2 Seras-tu présent ?
+
+      .button_wrapper
+        %button#wont_be_present.no Non
+
+      .button_wrapper
+        %button#will_be_present.yes Oui
+
+    / STEP 2: Fill name, email and comment
+    #form_container.animated.up
+      = form_for @guest, url: register_guest_path, format: :json, remote: true do |f|
+        = f.label :name "%br/"
+        = f.text_field :name, placeholder: "Ton nom/prénom pour que l'on sache qui tu es"
+        = f.email_field :email, placeholder: "ma_super_adresse@mariage_de_ouf.fr."
+        = f.text_field :comment, placeholder: "Un petit commentaire peut-être ? :)"
+        = f.select :will_be_present, [['Oui', true], ['Non', false]]
+
+        #final_buttons.buttons_container
+          .button_wrapper
+            %button.cancel J'ai un doute
+
+          .button_wrapper
+            %button.validate_form.yes{:type => 'submit'} Je valide
+
+      <% end %>
+
+    / STEP 3: confirmation screen
+    #success_confirmation.animated.up
+      %p Ta confirmation a bien été enregistrée. %br/ Merci, et à très bientôt ! %br/ %br/ Wendy et Arnaud
